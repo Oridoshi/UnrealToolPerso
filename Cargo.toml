@@ -1,11 +1,12 @@
 [package]
 name = "UnrealToolPerso"
-version = "0.1.0"
+version = "1.0.0"
 edition = "2021"
 authors = ["Tom DUNET (DUNT18030400)"]
 description = "Unreal Engine 5 Tool for personal use"
 
 [dependencies]
+winapi = { version = "0.3.9", features = ["winuser"] }
 eframe = "0.24"
 rfd = "0.12"
 serde = { version = "1.0", features = ["derive"] }
