@@ -190,7 +190,24 @@ impl App for MyApp {
                                 // Lancer le thread pour exécuter la commande
                                 thread::spawn(move || {
                                     let mut command = Command::new("powershell")
-                                        .args(["/C", ".\\Engine\\Build\\BatchFiles\\RunUAT.bat",&format!("-ScriptsForProject=\"{}\\{}\"", source_dir_clone, uproject_file_clone), "BuildCookRun",  &format!("-project=\"{}\\{}\"", source_dir_clone, uproject_file_clone), "-noP4", "-clientconfig=Development", "-serverconfig=Development", "-nocompileeditor", "-utf8output", "-platform=Win64", "-build", "-cook", "-unversionedcookedcontent", "-stage", "-package", &format!("-stagingdirectory=\"{}\"", project_dest_clone), "-cmdline=\"-Messaging\""])
+                                        .args(["/C",
+                                            ".\\Engine\\Build\\BatchFiles\\RunUAT.bat", 
+                                            &format!("-ScriptsForProject=\"{}\\{}\"", source_dir_clone, uproject_file_clone),
+                                            "BuildCookRun",
+                                            &format!("-project=\"{}\\{}\"", source_dir_clone, uproject_file_clone),
+                                            "-noP4",
+                                            "-clientconfig=Development",
+                                            "-serverconfig=Development",
+                                            "-nocompile",
+                                            "-utf8output",
+                                            "-platform=Win64",
+                                            "-build",
+                                            "-cook",
+                                            "-unversionedcookedcontent",
+                                            "-stage",
+                                            "-package",
+                                            &format!("-stagingdirectory=\"{}\"", project_dest_clone),
+                                            "-cmdline=\"-Messaging\""])
                                         .stdout(Stdio::piped())
                                         .spawn()
                                         .expect("Échec de l'exécution de la commande");
