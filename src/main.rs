@@ -1,13 +1,11 @@
 use std::{fs, thread};
 use std::fs::File;
-use std::io::{BufRead, BufReader, Read};
+use std::io::{BufRead, BufReader};
 use eframe::{egui, App};
 use std::process::{Command, Stdio};
 use std::sync::{Arc, Mutex};
 use rfd::FileDialog;
-use winapi::ctypes::__int32;
 use regex::Regex;
-use winapi::um::winuser::PrintWindow;
 
 struct MyApp {
     source_dir: String,
@@ -60,7 +58,7 @@ fn truncate_text_to_10_lines(text: &str) -> String {
 
 
 impl App for MyApp {
-    fn update(&mut self, ctx: &egui::Context, frame: &mut eframe::Frame) {
+    fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
         egui::CentralPanel::default().show(ctx, |ui| {
             ui.heading("Outil de Build Unreal");
 
@@ -132,7 +130,7 @@ impl App for MyApp {
                         let project_name_clone = project_name.clone();
 
                         // Vérifie si on est sous windows
-                        if(cfg!(target_os = "windows")) {
+                        if cfg!(target_os = "windows") {
                             // Lancer le thread pour exécuter la commande
                             thread::spawn(move || {
                                 let commandline = format!(".\\Engine\\Build\\BatchFiles\\Build.bat {} Development Win64 \"{}\\{}\" -WaitMutex", project_name_clone, source_dir_clone, uproject_file_clone);

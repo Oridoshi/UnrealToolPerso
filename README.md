@@ -60,33 +60,4 @@ Si vous avez rentré un chemin de fichier valide pour la sortie, alors le progra
 
 ### MacOS
 
-1. **cloner le projet**
-
-ouvrir un terminal et exécuter la commande suivante :
-```bash
-git clone https://github.com/Oridoshi/UnrealToolPerso
-```
-
-2. **Compiler le projet**
-
-Une fois le projet cloné, naviguez dans le dossier `UnrealToolPerso` et exécutez la commande suivante :
-```bash
-cargo build --release
-```
-
-3. **Deplacer le .app**
-
-Une fois le build terminé, le fichier exécutable se trouve dans le dossier `target/release`.
-Déplacez-le dans la racine de votre unreal from source.
-
-4. **Lancer le programme**
-
-Executez le fichier `UnrealToolPerso.app` dans la racine de votre projet Unreal Engine.
-
-5. **Utilisation du programme**
-
-Le programme vous demandera de rentrer 2 chemins de fichiers, vous avez la possiblilité de les rentrer manuellement ou cliquer sur le bouton `Browse` pour le selectionner.
-
-Si votre dossier contient un fichier `.uproject`, le programme affichera les informations de celui-ci et vous permettra de compiler votre projet.
-
-Si vous avez rentré un chemin de fichier valide pour la sortie, alors le programme vous permettra de packager votre projet.
+> **Note :** L'application ne fonctionne pas actuellement sous MacOS. L'application le pourras dans une prochaine version.
